@@ -1,12 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { HeaderStyle } from "./Components";
 
 const Header: React.FC = () => {
   return (
-    <header>
-      <Link to={"/"}>Home Page</Link>
-      <Link to={"/history"}>History Page</Link>
-    </header>
+    <HeaderStyle>
+      <div className="headercontent">
+        <Link className="link" to={"/"}>
+          Home Page
+        </Link>
+        <Link className="link" to={"/history"}>
+          History Page
+        </Link>
+      </div>
+    </HeaderStyle>
   );
 };
 

@@ -1,11 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { FetchProducts, FetchResult } from "../interfaces/interface";
 
-const useFetch: (props: FetchProducts) => FetchResult = ({
-  url,
-  method,
-  accessToken,
-}) => {
+const useFetch: (props: FetchProducts) => FetchResult = ({ url, method }) => {
   const [fetchRequest, setFetchRequest] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -16,7 +12,6 @@ const useFetch: (props: FetchProducts) => FetchResult = ({
       method,
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Client-ID ${accessToken}`,
       },
     })
       .then((res) => {

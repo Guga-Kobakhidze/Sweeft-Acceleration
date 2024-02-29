@@ -8,10 +8,10 @@ const route: RouteObject[] = [
   {
     path: "/",
     element: (
-      <div>
+      <>
         <Header />
         <Outlet />
-      </div>
+      </>
     ),
     children: [
       {

@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { Photo } from "../interfaces/interface";
+import { Photo } from "../../interfaces/interface";
 import ViewModal from "./ViewModal";
+import { accessToken } from "../../accessToken/AccessToken";
 
 interface PhotoCardProps {
   photo: Photo;
 }
-
-const accessToken = "R27yOWMgFcK32EfAy5qNiiWJFXY_wk3Hw60KwvzCcm8";
 
 const PhotoCard: React.FC<PhotoCardProps> = ({ photo }) => {
   const [selectedPhoto, setSelectedPhoto] = useState(false);

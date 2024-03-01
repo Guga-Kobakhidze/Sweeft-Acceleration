@@ -66,7 +66,7 @@ export const CardModal = styled.div`
   color: black;
   z-index: 51;
 
-  width: 900px;
+  width: 1000px;
   height: 500px;
   background-color: white;
   border-radius: 10px;
@@ -77,11 +77,36 @@ export const CardModal = styled.div`
   justify-content: start;
   gap: 40px;
 
+  .details {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 40px;
+    justify-content: center;
+
+    p {
+      margin: 0;
+    }
+  }
+
   img {
-    width: 50%;
+    width: 500px;
     height: 100%;
     object-fit: cover;
     justify-content: start;
+  }
+
+  .icon {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: brown;
+    }
   }
 `;
 
@@ -91,6 +116,6 @@ export const Overlay = styled.div`
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 50;
 `;

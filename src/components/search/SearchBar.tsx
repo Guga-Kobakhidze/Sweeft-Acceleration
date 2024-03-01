@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent, useEffect } from "react";
-import { FormStyle } from "./Components";
+import { FormStyle } from "../Components";
 
 interface SearchBarProps {
   handleChange: (query: string) => void;

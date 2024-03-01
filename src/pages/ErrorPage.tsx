@@ -1,3 +1,5 @@
+// ErrorPage for any wrong URL
+
 import React from "react";
 
 const ErrorPage: React.FC = () => {

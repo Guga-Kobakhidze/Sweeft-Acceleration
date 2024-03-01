@@ -1,3 +1,5 @@
+// SearchBar component for searching results from the Data
+
 import React, { useState, ChangeEvent, useEffect } from "react";
 import { FormStyle } from "../../assets/styles/Components";
 import { SearchBarProps } from "../../interfaces/propsInterface";

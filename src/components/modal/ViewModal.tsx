@@ -1,3 +1,5 @@
+// ViewModal component for view clicked product details
+
 import React from "react";
 import { CardModal, Overlay } from "../../assets/styles/Pages";
 import { ModalPhoto } from "../../interfaces/interface";

@@ -1,3 +1,5 @@
+// HomePage where are all fetched and searched photos
+
 import React, { useEffect, useState } from "react";
 import useFetch from "../hooks/useFetch";
 import { Photo } from "../interfaces/interface";
@@ -6,15 +8,17 @@ import PhotoCard from "../components/card/PhotoCard";
 import { accessToken } from "../accessToken/AccessToken";
 import useLocalStorage from "../hooks/useLocalStorage";
 import useSearch from "../hooks/useSearch";
-import { Container, Loading } from "../assets/styles/Pages";
+import { Loading, MainPageStyle } from "../assets/styles/Pages";
 
 const HomePage: React.FC = () => {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [searchedPhotos, setSearchedPhotos] = useState<Photo[]>([]);
   const [value, setValue] = useLocalStorage<string[]>("ValueKeys", []);
 
+  // for searching photos with useSearch hook
   const { loading, page, query, setQuery, searchProducts } = useSearch();
 
+  // for fetching photos with useFetch hook
   const {
     error,
     fetchRequest,
@@ -35,6 +39,7 @@ const HomePage: React.FC = () => {
     setSearchedPhotos([]);
   };
 
+  // filtering searched and fetched photos
   useEffect(() => {
     if (fetchRequest) {
       setPhotos((prev) => {
@@ -49,10 +54,11 @@ const HomePage: React.FC = () => {
 
     if (searchProducts && searchProducts.results) {
       setSearchedPhotos((prev) => {
-        const searchedData: Photo | any = searchProducts.results?.filter(
-          (newSearch: Photo) =>
-            !prev.some((prevSearch) => prevSearch.id === newSearch.id)
-        );
+        const searchedData: Photo[] =
+          searchProducts.results?.filter(
+            (newSearch: Photo) =>
+              !prev.some((prevSearch) => prevSearch.id === newSearch.id)
+          ) || [];
 
         return [...prev, ...searchedData];
       });
@@ -64,17 +70,18 @@ const HomePage: React.FC = () => {
   if (error) return null;
   if (fetchLoading && photos.length === 0) return <Loading>Loading...</Loading>;
 
+  // rendering all fetched and searched photos
   return (
     <div>
       <SearchBar handleChange={handleSearch} />
-      <Container>
+      <MainPageStyle>
         {researchPhotos?.map((photo: Photo, index) => (
           <div key={index}>
             <PhotoCard photo={photo} />
           </div>
         ))}
         {loading && <Loading>Loading...</Loading>}
-      </Container>
+      </MainPageStyle>
     </div>
   );
 };

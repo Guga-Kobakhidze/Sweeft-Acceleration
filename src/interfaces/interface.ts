@@ -1,3 +1,5 @@
+// for Photo
+
 export interface Photo {
   urls: {
     regular: string;
@@ -5,6 +7,8 @@ export interface Photo {
   alt_description: string;
   id: string;
 }
+
+// for Photo details
 
 export interface ModalPhoto {
   urls: {
@@ -17,10 +21,6 @@ export interface ModalPhoto {
   id: string;
 }
 
-export interface History {
-  history: string;
-}
-
 //   For fetching
 
 export interface FetchProducts {
@@ -31,5 +31,5 @@ export interface FetchProducts {
 export interface FetchResult {
   fetchRequest: [] | null;
   error: HTMLElement | null;
-  loading: boolean | any;
+  loading: boolean;
 }

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+// Styles for main and hystory page container
+
+export const MainPageStyle = styled.div`
   margin: 40px 0 100px;
   display: flex;
   flex-wrap: wrap;
@@ -18,7 +20,7 @@ export const Container = styled.div`
     ovject: cover;
 
     &:hover {
-      box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 5px 5px 20px #e03f3f;
     }
 
     h1 {
@@ -48,6 +50,8 @@ export const Container = styled.div`
   }
 `;
 
+// Styles for laoding
+
 export const Loading = styled.div`
   position: fixed;
   top: 95%;
@@ -57,6 +61,8 @@ export const Loading = styled.div`
   color: white;
   z-index: 999;
 `;
+
+// Styles for CardModal
 
 export const CardModal = styled.div`
   position: fixed;
@@ -115,6 +121,8 @@ export const CardModal = styled.div`
   }
 `;
 
+// styles for overlay
+
 export const Overlay = styled.div`
   position: fixed;
   top: 0;
@@ -124,6 +132,8 @@ export const Overlay = styled.div`
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 50;
 `;
+
+// Styles for Hystory Page container
 
 export const HistoryStyle = styled.div`
   margin: 160px 0 80px 80px;
@@ -137,9 +147,28 @@ export const HistoryStyle = styled.div`
     color: #33333;
     font-size: 16px;
     font-weight: bold;
+    box-shadow: 2px 2px 8px #e03f3f;
   }
 
   h1 {
     margin-left: 20px;
+  }
+
+  @media screen and (max-width: 800px) {
+    margin-left: 0;
+    select {
+      margin: 0 auto;
+    }
+    h1 {
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 636px) {
+    h1 {
+      order: -1;
+      margin-bottom: 20px;
+    }
   }
 `;

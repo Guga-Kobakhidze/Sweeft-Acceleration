@@ -1,3 +1,5 @@
+// useFetch hook for fetching Data 
+
 import { useCallback, useEffect, useState } from "react";
 import { FetchProducts, FetchResult } from "../interfaces/interface";
 

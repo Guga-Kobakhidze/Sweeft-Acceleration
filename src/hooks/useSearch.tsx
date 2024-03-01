@@ -1,3 +1,5 @@
+// useSearch hook for fetch and cache searched values from the database with useQuery
+
 import { useEffect, useState } from "react";
 import { accessToken } from "../accessToken/AccessToken";
 import { useQuery } from "@tanstack/react-query";
@@ -8,6 +10,7 @@ const useSearch = () => {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
+  // asyncronously fetching search results
   const fetchData = async () => {
     try {
       const res = await fetch(
@@ -30,6 +33,7 @@ const useSearch = () => {
     queryFn: fetchData,
   }) as { data: { results?: Photo[] } | null };
 
+  // Infinity Scroll Function
   const handleScroll = () => {
     if (
       window.innerHeight + document.documentElement.scrollTop + 1 >=

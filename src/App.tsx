@@ -1,3 +1,5 @@
+// Main App where rendering all of the routes, pages and components
+
 import "./assets/styles/app.css";
 import route from "./route/route";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";

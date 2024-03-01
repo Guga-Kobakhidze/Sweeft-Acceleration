@@ -1,3 +1,5 @@
+// useLocalStorage for save keyes and values in local storage 
+
 import { useEffect, useState } from "react";
 
 const useLocalStorage = <T,>(key: string, fallback: T) => {

@@ -1,3 +1,5 @@
+// Router for all pages with Header and Outlet
+
 import { Outlet, RouteObject } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import HistoryPage from "../pages/HistoryPage";

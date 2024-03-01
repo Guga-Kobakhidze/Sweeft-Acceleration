@@ -1,5 +1,7 @@
 import { ModalPhoto, Photo } from "./interface";
 
+// interfaces for component props
+
 export interface PhotoCardProps {
   photo: Photo;
 }

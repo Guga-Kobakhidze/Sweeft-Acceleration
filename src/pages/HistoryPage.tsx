@@ -1,8 +1,10 @@
+// HistoryPage where is the searched values with history of photos
+
 import React, { useEffect, useState } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 import useSearch from "../hooks/useSearch";
 import { Photo } from "../interfaces/interface";
-import { Container, HistoryStyle, Loading } from "../assets/styles/Pages";
+import { HistoryStyle, Loading, MainPageStyle } from "../assets/styles/Pages";
 import PhotoCard from "../components/card/PhotoCard";
 
 const HistoryPage: React.FC = () => {
@@ -20,15 +22,19 @@ const HistoryPage: React.FC = () => {
   useEffect(() => {
     if (searchProducts && searchProducts.results) {
       setSearchedPhotos((prev) => {
-        const searchedData: Photo | any = searchProducts.results?.filter(
-          (newSearch: Photo) =>
-            !prev.some((prevSearch) => prevSearch.id === newSearch.id)
-        );
+        const searchedData: Photo[] =
+          searchProducts.results?.filter(
+            (newSearch: Photo) =>
+              !prev.some((prevSearch) => prevSearch.id === newSearch.id)
+          ) || [];
 
         return [...prev, ...searchedData];
       });
     }
   }, [searchProducts]);
+
+  // returning Searched values from search
+  // if cache is true rendering photo details
 
   return (
     <div>
@@ -43,17 +49,16 @@ const HistoryPage: React.FC = () => {
         </select>
         <h1>Choose your searched Photos</h1>
       </HistoryStyle>
-
       {cache && (
         <div>
-          <Container>
+          <MainPageStyle>
             {searchedPhotos?.map((photo: Photo, index) => (
               <div key={index}>
                 <PhotoCard photo={photo} />
               </div>
             ))}
             {loading && <Loading>Loading...</Loading>}
-          </Container>
+          </MainPageStyle>
         </div>
       )}
     </div>

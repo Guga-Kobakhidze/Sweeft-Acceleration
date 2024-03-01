@@ -11,6 +11,12 @@ html.body {
 
 body {
   font-family: sans-serif;
+  background-color: #021530;
+  color: white;
+  background-image: url("../Vector.svg");
+  background-position-y: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 button,

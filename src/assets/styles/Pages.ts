@@ -29,6 +29,7 @@ export const Container = styled.div`
       text-align: center;
       width: 250px;
       font-size: 20px;
+      font-weight: bold;
       color: white;
       text-transform: uppercase;
       z-index: 1;
@@ -53,7 +54,7 @@ export const Loading = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 40px;
-  color: black;
+  color: white;
   z-index: 999;
 `;
 
@@ -98,7 +99,7 @@ export const CardModal = styled.div`
     height: 100%;
     object-fit: cover;
     justify-content: start;
-    transition: width 0.3s ease;
+    transition: width 0.5s ease;
   }
 
   .icon {

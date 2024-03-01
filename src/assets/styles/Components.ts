@@ -13,21 +13,22 @@ export const HeaderStyle = styled.div`
     align-items: center;
     margin: 0 auto;
     gap: 40px;
-    padding: 40px 40px;
-    background-color: rgba(255, 255, 255, 0.575);
+    padding: 35px;
+    background-color: #071220;
 
     .link {
       color: white;
       text-decoration: none;
-      font-size: 32px;
+      font-size: 22px;
       font-weight: 500;
-      padding: 20px 60px;
-      background-color: #181818;
-      border-radius: 5px;
+      padding: 10px 60px;
+      background-color: transparent;
+      border-radius: 40px;
       transition: 0.5s;
+      border: 2px solid #e03f3f;
 
       &:hover {
-        color: white;
+        color: #e03f3f;
         background-color: #33221e;
       }
     }
@@ -43,7 +44,7 @@ export const FormStyle = styled.form`
     width: 90%;
     border-radius: 10px;
     height: 45px;
-    border: 2px solid black;
+    border: 3px solid #e03f3f;
     padding-left: 20px;
   }
 `;

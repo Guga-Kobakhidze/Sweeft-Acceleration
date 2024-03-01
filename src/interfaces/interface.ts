@@ -21,10 +21,6 @@ export interface History {
   history: string;
 }
 
-export interface InfiniteScrollProps {
-  items: (Photo | History)[];
-}
-
 //   For fetching
 
 export interface FetchProducts {

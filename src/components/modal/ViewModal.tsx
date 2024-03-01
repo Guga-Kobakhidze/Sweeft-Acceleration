@@ -1,13 +1,9 @@
 import React from "react";
-import { CardModal, Overlay } from "../../pages/Pages";
-import { Photo, ModalPhoto } from "../../interfaces/interface";
+import { CardModal, Overlay } from "../../assets/styles/Pages";
+import { ModalPhoto } from "../../interfaces/interface";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-
-interface ViewModalProps {
-  onClose: () => void;
-  photo: Photo | ModalPhoto;
-}
+import { ViewModalProps } from "../../interfaces/propsInterface";
 
 const ViewModal: React.FC<ViewModalProps> = ({ photo, onClose }) => {
   return (

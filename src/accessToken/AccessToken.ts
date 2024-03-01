@@ -1,2 +1,2 @@
 export const accessToken: string =
-  "R27yOWMgFcK32EfAy5qNiiWJFXY_wk3Hw60KwvzCcm8";
+  "WSSc5lNh5cDygIDpSNnT-j2gPI0YVauZgKPJAuGEz_w";

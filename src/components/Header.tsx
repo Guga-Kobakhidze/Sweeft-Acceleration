@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { HeaderStyle } from "./Components";
+import { HeaderStyle } from "../assets/styles/Components";
 
 const Header: React.FC = () => {
   return (

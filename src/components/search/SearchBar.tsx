@@ -1,9 +1,6 @@
 import React, { useState, ChangeEvent, useEffect } from "react";
-import { FormStyle } from "../Components";
-
-interface SearchBarProps {
-  handleChange: (query: string) => void;
-}
+import { FormStyle } from "../../assets/styles/Components";
+import { SearchBarProps } from "../../interfaces/propsInterface";
 
 const SearchBar: React.FC<SearchBarProps> = ({ handleChange }) => {
   const [searchValue, setSearchValue] = useState<string>("");
@@ -11,6 +8,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ handleChange }) => {
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearchValue(value);
+  };
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    setSearchValue("");
   };
 
   useEffect(() => {
@@ -22,12 +24,13 @@ const SearchBar: React.FC<SearchBarProps> = ({ handleChange }) => {
   }, [searchValue]);
 
   return (
-    <FormStyle>
+    <FormStyle onSubmit={onSubmit}>
       <input
         className="Search"
         type="search"
         value={searchValue}
         onChange={onChange}
+        placeholder="Search without Submit"
       />
     </FormStyle>
   );

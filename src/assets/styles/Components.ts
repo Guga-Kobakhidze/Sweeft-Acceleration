@@ -7,47 +7,43 @@ export const HeaderStyle = styled.div`
   top: 0;
   z-index: 40;
 
-  width: 100%;
-  margin: 0 auto;
-
   .headercontent {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 100px;
     margin: 0 auto;
-    padding: 40px 100px;
+    gap: 40px;
+    padding: 40px 40px;
     background-color: rgba(255, 255, 255, 0.575);
 
     .link {
-      color: black;
+      color: white;
       text-decoration: none;
       font-size: 32px;
-      font-weight: 700;
-      padding: 10px 80px;
-      background-color: brown;
-      border-radius: 80px;
+      font-weight: 500;
+      padding: 20px 60px;
+      background-color: #181818;
+      border-radius: 5px;
       transition: 0.5s;
 
       &:hover {
         color: white;
+        background-color: #33221e;
       }
     }
   }
 `;
 
 export const FormStyle = styled.form`
-  maxwidth: 1440px;
-  width: 100%;
-  margin: 160px auto 0;
+  margin: 160px 0 80px;
   display: flex;
   justify-content: center;
 
   .Search {
     width: 90%;
-    border-radius: 50px;
+    border-radius: 10px;
     height: 45px;
     border: 2px solid black;
-    padding-left: 40px;
+    padding-left: 20px;
   }
 `;

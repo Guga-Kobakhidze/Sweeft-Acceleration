@@ -1,5 +1,6 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import "./assets/styles/app.css";
 import route from "./route/route";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
   });
 
   return (
-    <div>
+    <div className="container">
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={createBrowserRouter(route)} />
       </QueryClientProvider>

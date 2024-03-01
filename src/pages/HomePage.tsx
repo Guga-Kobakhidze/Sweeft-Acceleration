@@ -2,18 +2,14 @@ import React, { useEffect, useState } from "react";
 import useFetch from "../hooks/useFetch";
 import { Photo } from "../interfaces/interface";
 import SearchBar from "../components/search/SearchBar";
-import { Container, Loading } from "./Pages";
 import PhotoCard from "../components/card/PhotoCard";
-// import { useQuery } from "@tanstack/react-query";
 import { accessToken } from "../accessToken/AccessToken";
 import useLocalStorage from "../hooks/useLocalStorage";
 import useSearch from "../hooks/useSearch";
+import { Container, Loading } from "../assets/styles/Pages";
 
 const HomePage: React.FC = () => {
-  // const [query, setQuery] = useState<string>("");
-  // const [page, setPage] = useState(1);
   const [photos, setPhotos] = useState<Photo[]>([]);
-  // const [loading, setLoading] = useState(false);
   const [searchedPhotos, setSearchedPhotos] = useState<Photo[]>([]);
   const [value, setValue] = useLocalStorage<string[]>("ValueKeys", []);
 
@@ -28,28 +24,6 @@ const HomePage: React.FC = () => {
     method: "GET",
   });
 
-  // const fetchData = async () => {
-  //   try {
-  //     const res = await fetch(
-  //       `https://api.unsplash.com/search/photos?page=${page}&per_page=20&query=${query}&client_id=${accessToken}`
-  //     );
-
-  //     if (!res.ok) {
-  //       throw new Error("Response Failed");
-  //     }
-
-  //     return res.json();
-  //   } catch (error) {
-  //     console.error("Error fetching data:", error);
-  //     throw error;
-  //   }
-  // };
-
-  // const { data: searchProducts } = useQuery({
-  //   queryKey: ["searchData", query, page],
-  //   queryFn: fetchData,
-  // }) as { data: { results?: Photo[] } | null };
-
   const handleSearch = (query: string) => {
     setQuery(query);
     if (query == "" || value.includes(query)) {
@@ -57,28 +31,9 @@ const HomePage: React.FC = () => {
     } else {
       setValue([...value, query]);
     }
+
     setSearchedPhotos([]);
   };
-
-  // const handleScroll = () => {
-  //   if (
-  //     window.innerHeight + document.documentElement.scrollTop + 1 >=
-  //     document.documentElement.scrollHeight
-  //   ) {
-  //     setLoading(true);
-  //     setTimeout(() => {
-  //       setPage((prev) => prev + 1);
-  //       setLoading(false);
-  //     }, 500);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
 
   useEffect(() => {
     if (fetchRequest) {

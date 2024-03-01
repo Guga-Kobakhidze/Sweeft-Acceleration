@@ -54,7 +54,7 @@ export const Loading = styled.div`
   transform: translate(-50%, -50%);
   font-size: 40px;
   color: black;
-  z-index: 9999;
+  z-index: 999;
 `;
 
 export const CardModal = styled.div`
@@ -66,8 +66,8 @@ export const CardModal = styled.div`
   color: black;
   z-index: 51;
 
-  width: 1000px;
-  height: 500px;
+  width: 1200px;
+  height: 600px;
   background-color: white;
   border-radius: 10px;
   overflow: hidden;
@@ -78,23 +78,27 @@ export const CardModal = styled.div`
   gap: 40px;
 
   .details {
-    width: 500px;
+    width: 450px;
     display: flex;
     flex-direction: column;
     align-items: start;
     gap: 40px;
     justify-content: center;
+    opacity: 1;
+    transition: width 0.3s ease, opacity 0.3s ease;
 
     p {
+      font-size: 32px;
       margin: 0;
     }
   }
 
   img {
-    width: 500px;
+    width: 750px;
     height: 100%;
     object-fit: cover;
     justify-content: start;
+    transition: width 0.3s ease;
   }
 
   .icon {
@@ -118,4 +122,23 @@ export const Overlay = styled.div`
   right: 0;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 50;
+`;
+
+export const HistoryStyle = styled.div`
+  margin: 160px 0 80px 80px;
+  display: flex;
+  flex-wrap: wrap;
+
+  select {
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    color: #33333;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  h1 {
+    margin-left: 20px;
+  }
 `;

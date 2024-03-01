@@ -4,6 +4,7 @@ import { Photo } from "../interfaces/interface";
 import SearchBar from "../components/SearchBar";
 import { Container, Loading } from "./Pages";
 import PhotoCard from "../components/PhotoCard";
+import { useQuery } from "@tanstack/react-query";
 
 const HomePage: React.FC = () => {
   const accessToken = "R27yOWMgFcK32EfAy5qNiiWJFXY_wk3Hw60KwvzCcm8";
@@ -22,10 +23,27 @@ const HomePage: React.FC = () => {
     method: "GET",
   });
 
-  const { fetchRequest: searchProducts } = useFetch({
-    url: `https://api.unsplash.com/search/photos?page=${page}&per_page=20&query=${quaery}&client_id=${accessToken}`,
-    method: "GET",
-  }) as { fetchRequest: { results?: Photo[] } | null };
+  const fetchData = async () => {
+    try {
+      const res = await fetch(
+        `https://api.unsplash.com/search/photos?page=${page}&per_page=20&query=${quaery}&client_id=${accessToken}`
+      );
+
+      if (!res.ok) {
+        throw new Error("Response Failed");
+      }
+
+      return res.json();
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      throw error;
+    }
+  };
+
+  const { data: searchProducts } = useQuery({
+    queryKey: ["searchData", quaery, page],
+    queryFn: fetchData,
+  }) as { data: { results?: Photo[] } | null };
 
   const handleSearch = (quaery: string) => {
     setQuaery(quaery);
@@ -45,8 +63,6 @@ const HomePage: React.FC = () => {
     }
   };
 
-  console.log(quaery);
-
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -56,14 +72,25 @@ const HomePage: React.FC = () => {
 
   useEffect(() => {
     if (fetchRequest) {
-      setPhotos((prev) => [...prev, ...fetchRequest]);
+      setPhotos((prev) => {
+        const uniqueNewData = fetchRequest.filter(
+          (newPhoto: Photo) =>
+            !prev.some((prevPhoto) => prevPhoto.id === newPhoto.id)
+        );
+
+        return [...prev, ...uniqueNewData];
+      });
     }
 
-    if (searchProducts) {
-      setSearchedPhotos((prev: Photo[]) => [
-        ...prev,
-        ...(searchProducts?.results || []),
-      ]);
+    if (searchProducts && searchProducts.results) {
+      setSearchedPhotos((prev) => {
+        const searchedData: Photo | any = searchProducts.results?.filter(
+          (newSearch: Photo) =>
+            !prev.some((prevSearch) => prevSearch.id === newSearch.id)
+        );
+
+        return [...prev, ...searchedData];
+      });
     }
   }, [fetchRequest, searchProducts]);
 

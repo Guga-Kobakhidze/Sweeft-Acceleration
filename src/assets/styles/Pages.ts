@@ -172,3 +172,56 @@ export const HistoryStyle = styled.div`
     }
   }
 `;
+
+export const ErrorPageStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+
+  img {
+    width: 780px;
+    height: 500px;
+
+    @media screen and (max-width: 800px) {
+      width: 400px;
+      height: 300px;
+    }
+
+    @media screen and (max-width: 636px) {
+      width: 300px;
+      height: 200px;
+    }
+  }
+
+  button {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 500;
+    padding: 10px 60px;
+    background-color: transparent;
+    border-radius: 40px;
+    transition: 0.5s;
+    border: 2px solid #e03f3f;
+    text-shadow: 2px 2px 5px #e03f3f;
+    box-shadow: 1px 1px 8px #e03f3f;
+    cursor: pointer;
+
+    &:hover {
+      color: #e03f3f;
+      background-color: #33221e;
+    }
+
+    @media screen and (max-width: 660px) {
+      padding: 10px 20px;
+      font-size: 18px;
+    }
+
+    @media screen and (max-width: 660px) {
+      padding: 10px;
+      font-size: 14px;
+    }
+  }
+`;
